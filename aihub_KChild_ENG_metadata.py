@@ -26,8 +26,6 @@ for folder in os.listdir(path):
                 
                 #print(json.dumps(text, indent = "\t"))
 
-                
-
                 sr = text['Wav']['SamplingRate']
                 env = text['Environment']['NoiseEnviron']
                 device = text['Environment']['RecordingDevices']
@@ -39,26 +37,10 @@ for folder in os.listdir(path):
                 file_name = text['File']['FileName']
                 label = text['Transcription']['LabelText']
 
-                
-                """mdata['num'] = num
-                mdata['sr'] = sr
-                mdata['env'] = env
-                mdata['device'] = device
-                mdata['spk_name'] = spk_name
-                mdata['spk_gender'] = spk_gender
-                mdata['spk_age'] = spk_age
-                mdata['spk_fluency'] = spk_fluency
-                mdata['spk_school'] = spk_school
-                mdata['file_name'] = file_name
-                mdata['label'] = label"""
-                
-
                 mdata.loc[num] = [num, file_name, label, spk_name, spk_gender, spk_age, spk_fluency, spk_school, env, device, sr]
 
-                
-
                 num += 1
-
+                
 mdata.to_csv("aihub_kchildeng_metadata.csv")
 
 
